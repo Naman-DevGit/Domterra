@@ -1,78 +1,228 @@
-/* css/styles.css - Simple Phase1 styles for Domtera */
+/* -----------------------------------------------------
+   GLOBAL STYLES
+----------------------------------------------------- */
 
-/* Basic reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, Helvetica, sans-serif; background:#f6f8fb; color:#0f1724; line-height:1.4; }
+:root {
+  --primary: #0b5ed7;
+  --accent: #0b7be2;
+  --muted: #6b7280;
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
+  --container: 1100px;
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
 
-/* Container helper */
-.container { width: 92%; max-width: 1100px; margin: 0 auto; padding: 18px 0; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #0f1724;
+  line-height: 1.45;
+  font-size: 16px;
+}
 
-/* Header */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* -----------------------------------------------------
+   HEADER
+----------------------------------------------------- */
+
 .header {
-  background: #ffffff;
-  border-bottom: 1px solid #e7eef8;
+  background: #fff;
+  border-bottom: 1px solid #e9eef6;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav a {
+  margin-right: 16px;
+  color: #263445;
+  text-decoration: none;
+  font-weight: 600;
+}
+.navbutton:hover{
+  margin-right: 16px;
+  color: #263445;
+  text-decoration: underline;
+  transition: 0.7s
+  
+} 
+
+/* -----------------------------------------------------
+   HERO SECTION
+----------------------------------------------------- */
+
+.hero {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80');
+      background-size: cover;
+      background-position: center 30%; /* Position image nicely */
+  color: #fff;
+  text-align: center;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+
+.hero-left {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right {
+  flex: 1;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 10px;
+  height: 300px;
+  object-fit: cover;
+}
+.cta{
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 14px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* -----------------------------------------------------
+   CARDS GRID — FLEX FIXED VERSION
+----------------------------------------------------- */
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+/* 3 columns – AUTOMATIC EVEN WIDTH */
+.card {
+  flex: 0 0 calc((100% - 40px) / 3);  /* 40px = 2 gaps of 20px */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Image Size — Consistent */
+.card .img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
   display: block;
 }
-.header .inner { display:block; padding:14px 0; }
-.brand { font-weight:700; color:#0b5ed7; text-decoration:none; font-size:20px; display:inline-block; margin-right:18px; }
-.nav { display:inline-block; vertical-align:middle; }
-.nav a { text-decoration:none; color:#22303b; margin-right:12px; font-size:14px; }
 
-/* CTA button */
-.cta {
-  display:inline-block;
-  background:#0b5ed7;
-  color:#fff; padding:8px 12px; border-radius:8px;
-  text-decoration:none; font-weight:600; float:right;
+.card .body {
+  padding: 12px;
+  flex: 1;
 }
 
-/* Hero */
-.hero { background:#ffffff; border-radius:10px; padding:20px; margin:20px 0; display:block; overflow:hidden; }
-.hero .left { display:block; width:100%; margin-bottom:12px; }
-.hero h1 { font-size:22px; margin-bottom:8px; }
-.hero p { color:#6b7280; margin-bottom:12px; }
-
-/* Featured listings title */
-.section-title { font-size:18px; margin:12px 0; color:#0f1724; }
-
-/* Cards grid - simple inline-block approach */
-.cards-grid { text-align:left; }
-.card {
-  display:inline-block;           /* cards align next to each other */
-  width:100%;                     /* mobile full width */
-  max-width:100%;                 /* keep narrow on small screens */
-  vertical-align:top;
-  background:#fff;
-  border-radius:10px;
-  margin-bottom:14px;
-  overflow:hidden;
-  box-shadow: 0 6px 14px rgba(15,23,36,0.04);
+.price {
+  color: var(--primary);
+  font-weight: 800;
+  margin: 6px 0;
 }
 
-/* image inside card */
-.card .img { display:block; width:100%; height:170px; object-fit:cover; background:#ddd; }
-
-/* card content */
-.card .body { padding:12px; }
-.card h3 { font-size:15px; margin-bottom:6px; color:#0b3a66; }
-.card .price { color:#0b5ed7; font-weight:700; }
-.card .meta { color:#6b7280; font-size:13px; margin-top:6px; }
-
-/* card action */
-.card .btn { display:inline-block; margin-top:10px; padding:7px 10px; text-decoration:none; border-radius:8px; background:#eef6ff; color:#0b5ed7; font-weight:600; }
-
-/* two-column layout on medium screens using display + width (no flex) */
-@media(min-width:700px) {
-  .card { width:48%; margin-right:4%; }
-  .card:nth-child(2n) { margin-right:0; } /* remove right margin on every 2nd card */
+.meta {
+  color: var(--muted);
+  font-size: 13px;
 }
 
-/* three-column on large screens */
-@media(min-width:1000px) {
-  .card { width:31.3333%; margin-right:3%; }
-  .card:nth-child(3n) { margin-right:0; }
+.btn {
+  background: #eef6ff;
+  color: var(--primary);
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
 }
 
-/* Footer */
-.footer { display:block; text-align:center; padding:20px 0; color:#64748b; font-size:14px; margin-top:18px; }
+/* -----------------------------------------------------
+   RESPONSIVE GRID
+----------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .card {
+    flex: 0 0 calc((100% - 20px) / 2); /* 2 columns */
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    flex: 0 0 100%; /* single column */
+  }
+  .cards-grid {
+    gap: 14px;
+  }
+  .hero {
+    flex-direction: column;
+  }
+}
+
+/* -----------------------------------------------------
+   FOOTER
+----------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px 0;
+  margin-top: 40px;
+  background-color: #263445;
+}
+
+
+
 
