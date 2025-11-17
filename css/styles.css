@@ -215,13 +215,124 @@ body {
    FOOTER
 ----------------------------------------------------- */
 
-.footer {
-  text-align: center;
-  color: #94a3b8;
-  padding: 20px 0;
-  margin-top: 40px;
-  background-color: #263445;
+/* Domtera: Footer */
+.dt-footer {
+  background: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px),
+              radial-gradient(circle, rgba(255,255,255,0.01) 1px, transparent 1px);
+  background-color: #07070a; /* dark base */
+  background-size: 24px 24px, 12px 12px;
+  color: #d1d5db;
+  margin-top: 48px;
+  padding-top: 40px;
+  padding-bottom: 12px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
 }
+
+/* container */
+.dt-footer-inner {
+  display: block;
+  padding: 0 18px;
+}
+
+/* top grid of columns */
+.dt-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  padding-bottom: 28px;
+}
+
+/* each column */
+.dt-footer-col h4 {
+  color: #ffd400; /* yellow heading */
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  letter-spacing: .6px;
+}
+
+.dt-footer-col a {
+  display: block;
+  color: #d1d5db;
+  text-decoration: none;
+  margin: 6px 0;
+  transition: color .15s ease, text-decoration .15s ease;
+}
+
+.dt-footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* bottom area */
+.dt-footer-bottom {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  padding-top: 20px;
+}
+
+/* about text */
+.dt-about { flex: 1 1 55%; }
+.dt-about h4 { color: #ffd400; margin-bottom: 10px; }
+.dt-about p { color: #cbd5e1; line-height: 1.5; margin: 0; }
+
+/* contact / badges */
+.dt-contact { flex: 1 1 40%; max-width: 360px; }
+.dt-contact h4 { color: #ffd400; margin-bottom: 8px; }
+.dt-contact p { margin: 6px 0; color: #cbd5e1; }
+
+.dt-badges img {
+  height: 34px;
+  margin-right: 8px;
+  margin-top: 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* social icons (simple text placeholders) */
+.dt-social { margin-top: 12px; }
+.dt-social a {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* credit row */
+.dt-credit {
+  text-align: center;
+  padding: 18px 12px;
+  color: #8b93a3;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+/* responsive: stack columns */
+@media (max-width: 900px) {
+  .dt-footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .dt-footer-bottom { flex-direction: column; gap: 18px; }
+  .dt-about, .dt-contact { max-width: 100%; }
+}
+
+@media (max-width: 520px) {
+  .dt-footer-grid { grid-template-columns: 1fr; }
+  .dt-footer-inner { padding: 0 12px; }
+  .dt-credit { font-size: 12px; padding: 14px 8px; }
+  .dt-badges img { height: 30px; }
+  .dt-social a { width: 30px; height: 30px; line-height: 30px; }
+}
+
 
 
 
