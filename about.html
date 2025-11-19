@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Domterra</title>
+
+  <!-- Embedded styles so the page displays correctly immediately -->
+  <style>
+    :root{
+      --primary: #0b5ed7;
+      --muted: #64748b;
+      --bg: #f6f8fb;
+      --card-bg: #ffffff;
+      --max-width: 1100px;
+      --radius: 12px;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* header */
+    .header{
+      background:#fff;
+      border-bottom:1px solid #e9eef6;
+    }
+    .header .inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--primary);
+      text-decoration:none;
+      font-size:20px;
+    }
+    .nav a{
+      margin-left:14px;
+      color:#26414f;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    .nav a.active{ color:var(--primary); }
+
+    /* page wrapper */
+    .page {
+      max-width: var(--max-width);
+      margin: 28px auto;
+      padding: 0 18px 44px;
+    }
+
+    /* hero */
+    .hero {
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+    .hero img {
+      width:100%;
+      display:block;
+      height:360px;
+      object-fit:cover;
+    }
+    .hero .overlay {
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.45));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+    .hero .hero-inner {
+      color: #fff;
+      text-align:center;
+      max-width:920px;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:30px;
+      line-height:1.06;
+      font-weight:800;
+    }
+    .hero p {
+      margin:0;
+      color:rgba(255,255,255,0.94);
+      font-size:16px;
+    }
+
+    /* two-column intro */
+    .intro {
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:24px;
+      margin-top:22px;
+      align-items:start;
+    }
+    .intro .left {
+      background:var(--card-bg);
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(15,23,36,0.05);
+    }
+    .intro .left h2{ margin-top:0; font-size:20px; }
+    .intro .left p{ color:var(--muted); margin:8px 0 0; }
+
+    .intro .right {
+      background:var(--card-bg);
+      padding:16px;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(15,23,36,0.04);
+      text-align:center;
+    }
+    .intro .right img {
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:8px;
+      display:block;
+    }
+    .intro .right h4 { margin:12px 0 6px; font-size:16px; }
+    .intro .right p { color:var(--muted); margin:0; font-size:14px; }
+
+    /* features grid */
+    .features {
+      margin-top:26px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    .feature {
+      background:var(--card-bg);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(15,23,36,0.05);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .feature:hover {
+      transform: translateY(-6px);
+      box-shadow:0 18px 40px rgba(15,23,36,0.09);
+    }
+    .feature img {
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      display:block;
+    }
+    .feature .content {
+      padding:14px;
+    }
+    .feature h3 { margin:0 0 8px; font-size:16px; }
+    .feature p { margin:0; color:var(--muted); font-size:14px; }
+
+    /* contact + CTA */
+    .contact-cta {
+      display:flex;
+      gap:20px;
+      margin-top:28px;
+      align-items:center;
+    }
+    .contact {
+      flex:1;
+      background:var(--card-bg);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(15,23,36,0.04);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .contact img {
+      width:120px;
+      height:90px;
+      object-fit:cover;
+      border-radius:8px;
+      flex-shrink:0;
+    }
+    .contact .meta p { margin:0; color:var(--muted); font-size:14px; }
+    .contact .meta strong { display:block; margin-bottom:6px; color:#0b2b4a; }
+
+    .cta {
+      min-width:220px;
+      text-align:center;
+    }
+    .btn {
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 10px 30px rgba(11,94,215,0.12);
+    }
+    .btn:hover { opacity:0.96; transform: translateY(-2px); }
+
+    footer.sitefoot {
+      margin-top:36px;
+      text-align:center;
+      color:var(--muted);
+      padding:18px 0;
+      font-size:14px;
+    }
+
+    /* responsive */
+    @media (max-width: 980px) {
+      .intro { grid-template-columns: 1fr; }
+      .features { grid-template-columns: repeat(2, 1fr); }
+      .contact-cta { flex-direction:column; align-items:stretch; }
+      .contact img { width:100px; height:80px; }
+      .intro .right img { height:140px; }
+    }
+
+    @media (max-width: 640px) {
+      .features { grid-template-columns: 1fr; }
+      .hero img { height:220px; }
+      .hero h1 { font-size:22px; }
+      .hero p { font-size:14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="inner">
+      <a class="brand" href="index.html">Domterra</a>
+      <nav class="nav" style="display:inline-block; margin-left:18px;">
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <!-- HERO (image file: assets/images/about-hero.jpg) -->
+    <section class="hero">
+      <img src="assets/images/about-hero.jpg" alt="Domterra — properties and listings">
+      <div class="overlay">
+        <div class="hero-inner">
+          <h1>Simple, local property listings you can trust</h1>
+          <p>Domterra helps owners and buyers connect directly — from city flats to farmland — with clear listings and no hidden fees.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- intro & quick contact box (image file: assets/images/contact.jpg optional) -->
+    <section class="intro">
+      <div class="left">
+        <h2>Who we are</h2>
+        <p class="muted">Domterra is a student-built real-estate project focused on building a simple, transparent marketplace for property owners and buyers in Satna and nearby areas. We emphasise verified listings, straightforward contact between owner and buyer, and a curated selection of niche properties such as farmland and weekend homes.</p>
+
+        <h3 style="margin-top:16px;">How it works</h3>
+        <ul style="padding-left:18px; color:var(--muted); margin-top:8px; line-height:1.7;">
+          <li>Owners add free listings with photos and details.</li>
+          <li>Buyers browse and contact owners directly via listing contact info.</li>
+          <li>We spot-check listings to keep quality high.</li>
+        </ul>
+      </div>
+
+      <aside class="right">
+        <img src="assets/images/contact.jpg" alt="Contact image" style="width:100%; height:160px; object-fit:cover; border-radius:8px;">
+        <h4 style="margin:12px 0 6px;">Need help?</h4>
+        <p style="margin:0; color:var(--muted); font-size:14px;">Reach our support for listing help or queries.</p>
+        <p style="margin-top:10px;"><strong>Email:</strong> support@domterra.example<br><strong>Phone:</strong> +91 98XXXXXXX</p>
+      </aside>
+    </section>
+
+    <!-- features (place images assets/images/feature-1.jpg etc) -->
+    <section>
+      <h2 style="margin-top:26px; margin-bottom:12px;">What we offer</h2>
+      <div class="features">
+
+        <div class="feature">
+          <img src="assets/images/feature-1.jpg" alt="Free Listings">
+          <div class="content">
+            <h3>Free Listings</h3>
+            <p>Owners can post property ads without any posting fees — basic listings are free.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="assets/images/feature-2.jpg" alt="Verified Properties">
+          <div class="content">
+            <h3>Verified Properties</h3>
+            <p>We review and verify selected listings to reduce fraudulent posts and improve buyer confidence.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <img src="assets/images/feature-3.jpg" alt="Plots and Farmland">
+          <div class="content">
+            <h3>Plots & Farmland</h3>
+            <p>Find plots, agricultural land, and niche rural listings that are hard to find on big portals.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- contact + CTA -->
+    <div class="contact-cta">
+      <div class="contact">
+        <img src="assets/images/contact.jpg" alt="contact">
+        <div class="meta">
+          <strong>Contact Domterra</strong>
+          <p class="muted">Satna, Madhya Pradesh<br>support@domterra.example<br>+91 98XXXXXXX</p>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="properties.html">Browse Properties</a>
+      </div>
+    </div>
+
+    <footer class="sitefoot">
+      © Domterra — Free Listings & Niche Properties
+    </footer>
+
+  </div> <!-- end .page -->
+
+</body>
+</html>
