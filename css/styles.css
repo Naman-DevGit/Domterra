@@ -9,27 +9,30 @@
   --bg: #f6f8fb;
   --card-bg: #ffffff;
   --container: 1100px;
-  font-family: Inter, system-ui, Arial, sans-serif;
+  
 }
 
 * { box-sizing: border-box; }
 body {
+  font-family: Inter, system-ui, Arial, sans-serif;
   margin: 0;
   background: var(--bg);
   color: #0f1724;
   line-height: 1.45;
   font-size: 16px;
 }
-
+ 
 .container {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 18px;
+  padding: 1.5rem;
 }
 
-/* -----------------------------------------------------
-   HEADER
------------------------------------------------------ */
+
+   /* HEADER */
+/* ----------------------------------------------------- */ */
+/* HEADER
+   ----------------------------------------------------- */
 
 .header {
   background: #fff;
@@ -50,21 +53,30 @@ body {
   font-size: 22px;
   color: var(--primary);
   text-decoration: none;
+  line-height: 1;
 }
 
-.nav a {
-  margin-right: 16px;
+
+.nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav .navbutton {
   color: #263445;
   text-decoration: none;
   font-weight: 600;
+  transition: color 160ms ease, transform 160ms ease;
 }
-.navbutton:hover{
-  margin-right: 16px;
-  color: #263445;
+
+.nav .navbutton:hover,
+.nav .navbutton:focus {
+  color: var(--primary);
   text-decoration: underline;
-  transition: 0.7s
-  
-} 
+  transform: translateY(-1px);
+}
+
 
 /* -----------------------------------------------------
    HERO SECTION
@@ -215,11 +227,10 @@ body {
    FOOTER
 ----------------------------------------------------- */
 
-/* Domtera: Footer */
 .dt-footer {
   background: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px),
               radial-gradient(circle, rgba(255,255,255,0.01) 1px, transparent 1px);
-  background-color: #07070a; /* dark base */
+  background-color: #07070a;
   background-size: 24px 24px, 12px 12px;
   color: #d1d5db;
   margin-top: 48px;
@@ -229,13 +240,11 @@ body {
   font-size: 14px;
 }
 
-/* container */
 .dt-footer-inner {
   display: block;
   padding: 0 18px;
 }
 
-/* top grid of columns */
 .dt-footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -243,9 +252,8 @@ body {
   padding-bottom: 28px;
 }
 
-/* each column */
 .dt-footer-col h4 {
-  color: #ffd400; /* yellow heading */
+  color: #ffd400;
   margin: 0 0 10px 0;
   font-size: 14px;
   letter-spacing: .6px;
@@ -264,7 +272,6 @@ body {
   text-decoration: underline;
 }
 
-/* bottom area */
 .dt-footer-bottom {
   display: flex;
   gap: 30px;
@@ -274,15 +281,31 @@ body {
   padding-top: 20px;
 }
 
-/* about text */
-.dt-about { flex: 1 1 55%; }
-.dt-about h4 { color: #ffd400; margin-bottom: 10px; }
-.dt-about p { color: #cbd5e1; line-height: 1.5; margin: 0; }
+.dt-about {
+  flex: 1 1 55%;
+}
+.dt-about h4 {
+  color: #ffd400;
+  margin-bottom: 10px;
+}
+.dt-about p {
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
 
-/* contact / badges */
-.dt-contact { flex: 1 1 40%; max-width: 360px; }
-.dt-contact h4 { color: #ffd400; margin-bottom: 8px; }
-.dt-contact p { margin: 6px 0; color: #cbd5e1; }
+.dt-contact {
+  flex: 1 1 40%;
+  max-width: 360px;
+}
+.dt-contact h4 {
+  color: #ffd400;
+  margin-bottom: 8px;
+}
+.dt-contact p {
+  margin: 6px 0;
+  color: #cbd5e1;
+}
 
 .dt-badges img {
   height: 34px;
@@ -292,8 +315,9 @@ body {
   display: inline-block;
 }
 
-/* social icons (simple text placeholders) */
-.dt-social { margin-top: 12px; }
+.dt-social {
+  margin-top: 12px;
+}
 .dt-social a {
   display: inline-block;
   width: 34px;
@@ -308,7 +332,6 @@ body {
   font-weight: 700;
 }
 
-/* credit row */
 .dt-credit {
   text-align: center;
   padding: 18px 12px;
@@ -318,20 +341,40 @@ body {
   font-size: 13px;
 }
 
-/* responsive: stack columns */
 @media (max-width: 900px) {
-  .dt-footer-grid { grid-template-columns: repeat(2, 1fr); }
-  .dt-footer-bottom { flex-direction: column; gap: 18px; }
-  .dt-about, .dt-contact { max-width: 100%; }
+  .dt-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dt-footer-bottom {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .dt-about, .dt-contact {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 520px) {
-  .dt-footer-grid { grid-template-columns: 1fr; }
-  .dt-footer-inner { padding: 0 12px; }
-  .dt-credit { font-size: 12px; padding: 14px 8px; }
-  .dt-badges img { height: 30px; }
-  .dt-social a { width: 30px; height: 30px; line-height: 30px; }
+  .dt-footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .dt-footer-inner {
+    padding: 0 12px;
+  }
+  .dt-credit {
+    font-size: 12px;
+    padding: 14px 8px;
+  }
+  .dt-badges img {
+    height: 30px;
+  }
+  .dt-social a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
 }
+
 
 
 
