@@ -265,27 +265,5 @@
   <footer class="footer" style="text-align:center; padding:18px 0; color:var(--muted); margin-top:40px; border-top:1px solid #eee;">
     © Domterra — Satna, Madhya Pradesh
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentImage = document.getElementById('currentImage');
-      const thumbnails = document.querySelectorAll('#thumbs img');
-
-      thumbnails.forEach(thumb => {
-        thumb.addEventListener('click', function() {
-          // 1. Get the image source from the clicked thumbnail
-          const newSrc = this.getAttribute('data-src');
-          
-          // 2. Update the main image
-          currentImage.src = newSrc;
-
-          // 3. Update the active class styling
-          thumbnails.forEach(t => t.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
-    });
-  </script>
-
 </body>
 </html>

@@ -126,6 +126,17 @@
     </div>
   </div>
 
+  <script>const form = document.querySelector('form');
+const emailInput = document.getElementById('email');
+
+
+form.addEventListener('submit', function(event) {
+  const emailValue = emailInput.value;
+  if (!emailValue.includes('@')) {
+    event.preventDefault();
+    alert('Invalid email: You must include an @ symbol.');
+  }
+});</script>
 </body>
 </html>
 
